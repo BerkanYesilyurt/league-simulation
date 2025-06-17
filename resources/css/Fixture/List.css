@@ -1,0 +1,26 @@
+.d-flex.flex-wrap {
+    gap: 1rem;
+}
+
+.fixture-card {
+    flex: 1 1 calc(33.333% - 1rem);
+    min-width: 280px;
+    max-width: 100%;
+}
+
+.fixture-card .card {
+    height: 100%;
+}
+
+.card-header {
+    font-size: 1rem;
+    padding: 0.4rem 0.8rem;
+}
+
+.table {
+    font-size: 0.85rem;
+}
+
+td, th {
+    padding: 0.25rem 0.5rem;
+}
