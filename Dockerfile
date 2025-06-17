@@ -22,8 +22,8 @@ WORKDIR /var/www
 
 COPY . .
 
-RUN composer install --optimize-autoloader --no-interaction \
-    && npm install
+RUN composer install --optimize-autoloader --no-interaction --no-dev \
+    && npm install && npm run build
 
 RUN chown -R www-data:www-data /var/www \
     && chmod -R 755 /var/www/storage \
@@ -32,7 +32,14 @@ RUN chown -R www-data:www-data /var/www \
 RUN echo '#!/bin/bash\n\
 set -e\n\
 \n\
+
+if [ ! -d "/var/www/vendor" ]; then\n\
+    echo "Composer install."\n\
+    composer install --optimize-autoloader --no-interaction\n\
+fi\n\
+\n\
 if [ ! -f .env ]; then\n\
+    echo ".env"\n\
     cp .env.example .env\n\
 fi\n\
 \n\
@@ -44,7 +51,9 @@ if ! grep -q "APP_KEY=base64:" .env; then\n\
     php artisan key:generate --no-interaction\n\
 fi\n\
 \n\
-
+php artisan config:clear\n\
+php artisan cache:clear\n\
+\n\
 php artisan migrate:fresh --seed --no-interaction\n\
 \n\
 php artisan storage:link --no-interaction\n\
