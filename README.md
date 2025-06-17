@@ -52,3 +52,8 @@ Servislerin imajlarını oluşturun ve bu servisleri çalıştırarak uygulamay�
 - Migration ve seed işlemlerini çalıştırarak veritabanını başlatın. (```php artisan migrate --seed```)
 - Composer ile PHP bağımlılıklarını yükleyin. (```composer install```)
 - Geliştirme sunucusunu başlatın. (```php artisan serve - npm run dev```)
+
+## Ekran Görüntüleri
+![Screenshot_1](https://github.com/user-attachments/assets/8ea6af44-a766-4832-b7e1-3af051107924)
+![Screenshot_2](https://github.com/user-attachments/assets/7d8575cf-38fb-4668-8dac-80763903d0c7)
+![Screenshot_3](https://github.com/user-attachments/assets/cb21d935-70e3-435b-a6b2-74fd6ef3f59f)
